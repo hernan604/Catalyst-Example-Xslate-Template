@@ -1,0 +1,9 @@
+Loja: <: $loja_atual :>
+<br><br>
+: include $include_tpl( "cabecalho.tx" )
+#####################<BR>
+corpo........<br>
+corpo........<br>
+corpo........<br>
+#####################<BR>
+: include $include_tpl( "footer.tx" )

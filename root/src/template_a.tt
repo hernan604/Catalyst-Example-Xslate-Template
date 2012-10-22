@@ -1,0 +1,11 @@
+: include "src/cabecalho.tx";
+
+-=> template_a.tt <=-
+ááã
+
+<: for $arr -> $v { :>
+    <: $v :>
+<: } :>
+
+
+

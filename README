@@ -1,0 +1,30 @@
+Exemplo de aplicação catalyst com Xslate.
+
+Preparei este exemplo para demonstrar uma aplicação que vai tentar encontrar templates específicos e  caso não encontre, vai procurar templates padrão. Ou seja, vamos supor que temos 'loja1' e 'loja2':
+
+- dentro do template, utilizamos: include $include_tpl( "cabecalho.tx" )
+
+ - A app vai tentar encontrar: root/src/$loja_atual/$template   ex. root/src/loja1/template.tx
+ - Se nao encontrou no path anterior, a app vai procurar: root/src/padrao/$template   ex. root/src/padrao/template.tx
+
+Para testar: 
+
+Inicie o servidor: 
+    script/template_server.pl -rdp 3000
+
+Acesse:
+
+    http://localhost:3000/layout/loja1 (perceba diferença)
+    http://localhost:3000/layout/loja2 (perceba diferença)
+
+Acesse tambem:
+
+    http://localhost:3000/teste (perceba diferença)
+
+Observações:
+
+    O método que verifica se o tpl existe está dentro desta app no arquivo: Template/View/Xslate.pm no metodo include_tpl: esse é o metodo que vai validar se os templates existem na ordem correta. Este é o método que deve ser utilizado na hora de fazer um include em template. Dessa maneira a app sempre vai verificar se existe o template específico.
+    Funciona assim:
+    O tpl específico é procurado através da variável: $c->stash->{ loja_atual }. Essa variável é usada para criar o path de template específico
+
+    

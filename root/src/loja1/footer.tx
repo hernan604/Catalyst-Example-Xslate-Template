@@ -1,0 +1,4 @@
+######################## <br>
+CABECALHO PADRÃO - Loja1 <BR>
+: include $include_tpl( "cabecalho-especifico.tx" )
+######################## <BR>
